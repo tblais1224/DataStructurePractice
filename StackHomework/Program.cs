@@ -9,44 +9,22 @@ namespace StackHomework
 {
     class Program
     {
-        public class Stack
-        {
-            public ArrayList MyStack = new ArrayList();
-            public void Push(char element)
-            {
-                MyStack.Add(element);
-            }
-            public char Top()
-            {
-                return (char)MyStack[Size() - 1];
-            }
-            public void Pop()
-            {
-                MyStack.RemoveAt(Size() - 1);
-            }
-            public int Size()
-            {
-                return MyStack.Count;
-            }
-        }
         static void Main(string[] args)
         {
-            var newStack = new Stack();
-            var word = "reverse me";
-            foreach (var c in word)
+            var myArr = new DynamicArray();
+            myArr.Append(44);
+            myArr.Append(44);
+            myArr.Append(44);
+            Console.WriteLine(myArr.GetItem(2));
+            myArr.SetItem(2, 12);
+            Console.WriteLine(myArr.GetItem(2));
+
+            for (int i = 0; i < 15; i++)
             {
-                newStack.Push(c);
+                myArr.Append(i);
             }
 
-            var newWord = "";
-            var sizeOfStack = newStack.Size();
-            for (int i = 0; i < sizeOfStack; i++)
-            {
-                newWord = newWord + newStack.Top();
-                newStack.Pop();
-            }
-
-            Console.WriteLine(newWord);
+            Console.WriteLine(myArr.GetItem(16));
         }
     }
 }
